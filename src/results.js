@@ -1,4 +1,4 @@
-import { el, makeRoute } from './core.js';
+import { el, route } from './core.js';
 import { Business } from './open-data-api.js';
 const api = new Business();
 
@@ -17,7 +17,7 @@ function displayBusineses(selector, data) {
     for (let item of data) {
         row.appendChild(el('a'
         ,{ class: 'list-item'
-            ,href: makeRoute('business','id',item.externalid)}
+            ,href: new route('business','id',item.externalid).url}
         ,item.trade_name));
     }
     let list = el('div', {class: 'list'}, row);

@@ -1,4 +1,4 @@
-import { el, makeRoute } from './core.js'
+import { el, route } from './core.js'
 import { Business } from './open-data-api.js'
 const api = new Business();
 
@@ -15,13 +15,13 @@ async function init() {
 
 function businessSearch() {
     let searchValue = document.querySelector('#businessQueryString').value;
-    window.location.assign(makeRoute('results','q',searchValue));
+    new route('results','q',searchValue).go();
 }
 
 function displayCategories(selector, categories) {
     let categoryCards = el('div',{class:'card-deck'}); 
     for (let c of categories) {
-        let card = el('a',{class:'card', href: makeRoute('results','category',c.business_category) }, 
+        let card = el('a',{class:'card', href: new route('results','category',c.business_category).url }, 
             el('p',{"class":"count"}, c.count_1),
             el('div',{"class":"category"}, c.business_category));
         categoryCards.appendChild(card);

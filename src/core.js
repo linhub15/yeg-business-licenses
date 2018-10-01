@@ -14,4 +14,13 @@ function el(tag, attrs, ...children) {
 function makeRoute(controller, param, value) {
   return param && value ? `/${controller}?${param}=${value}` : `/${controller}`;
 }
-export {el, makeRoute};
+
+class route {
+  constructor(controller, param, value) {
+    this.url = param && value ? `/${controller}?${param}=${value}` : `/${controller}`;
+  }
+  go() {
+    window.location.assign(this.url);
+  }
+}
+export {el, route};
