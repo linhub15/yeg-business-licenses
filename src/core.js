@@ -1,3 +1,8 @@
+/**
+ * @param {string} tag HTML Tag e.g. 'div', 'p'
+ * @param {attributeObject | null} attrs {class: 'container', id: 'submitBtn'}
+ * @param  {...any} children Can be other HTMLElement Objects or a single string
+ */
 function el(tag, attrs, ...children) {
   let element = tag ? document.createElement(tag) : null;
   let keys = attrs && element ? Object.keys(attrs) : null;

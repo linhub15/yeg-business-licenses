@@ -4,6 +4,7 @@ plugins:
 exclude:
   - Gemfile.lock
   - Gemfile
+  - README.md
 
 defaults:
   -
